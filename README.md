@@ -49,13 +49,13 @@ In this step, we perform different sets of validation on the given set of traini
 ### Model Training 
 1) Data Export from Db - The data in a stored database is exported as a CSV file to be used for model training.
 2) Data Preprocessing   
-    a.  Drop the columns not required for prediction.
-    b.  Remove the unwanted spaces in data.
-    c.  For this dataset, the null values were replaced with ‘?’ in the client data. Those ‘?’ have been replaced with NaN values.
-    d.  Check for null values in the columns. If present, impute the null values using the categorical imputer.
-    e.  Replace and encode the categorical values with numeric values.
-    f.  Scale the numeric values using the standard scaler.
-    g.  Handle the imbalanced dataset using oversampling.
+    1.  Drop the columns not required for prediction.
+    2.  Remove the unwanted spaces in data.
+    3.  For this dataset, the null values were replaced with ‘?’ in the client data. Those ‘?’ have been replaced with NaN values.
+    4.  Check for null values in the columns. If present, impute the null values using the categorical imputer.
+    5.  Replace and encode the categorical values with numeric values.
+    6.  Scale the numeric values using the standard scaler.
+    7.  Handle the imbalanced dataset using oversampling.
 3) Clustering - KMeans algorithm is used to create clusters in the preprocessed data. The optimum number of clusters is selected by plotting the elbow plot, and for the dynamic selection of the number of clusters, we are using "KneeLocator" function. The idea behind clustering is to implement different algorithms
 The Kmeans model is trained over preprocessed data, and the model is saved for further use in prediction.
 4) Model Selection – After the clusters have been created, we find the best model for each cluster. We are using two algorithms, "Random Forest" and "XGBoost". For each cluster, both the algorithms are passed with the best parameters derived from GridSearch. We calculate the AUC scores for both models and select the model with the best score. Similarly, the model is selected for each cluster. All the models for every cluster are saved for use in prediction.
