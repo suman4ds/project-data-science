@@ -79,13 +79,13 @@ Data Insertion in Database
 ### Prediction 
 1) Data Export from Db - The data in the stored database is exported as a CSV file to be used for prediction.
 2) Data Preprocessing  :  
-    a)	Drop the columns not required for prediction.
-    b)	Remove the unwanted spaces in data.
-    c)	For this dataset, the null values were replaced with ‘?’ in the client data. Those ‘?’ have been replaced with NaN values.
-    d)	Check for null values in the columns. If present, impute the null values using the categorical imputer.
-    e)	Replace and encode the categorical values with numeric values.
-    f)	Scale the numeric values using the standard scaler.
-    g)	Handle the imbalanced dataset using oversampling
+    1)	Drop the columns not required for prediction.
+    2)	Remove the unwanted spaces in data.
+    3)	For this dataset, the null values were replaced with ‘?’ in the client data. Those ‘?’ have been replaced with NaN values.
+    4)	Check for null values in the columns. If present, impute the null values using the categorical imputer.
+    5)	Replace and encode the categorical values with numeric values.
+    6)	Scale the numeric values using the standard scaler.
+    7)	Handle the imbalanced dataset using oversampling
 3) Clustering - KMeans model created during training is loaded, and clusters for the preprocessed prediction data is predicted.
 4) Prediction - Based on the cluster number, the respective model is loaded and is used to predict the data for that cluster.
 5) Once the prediction is made for all the clusters, the predictions along with the Wafer names are saved in a CSV file at a given location, and the location is returned to the client.
